@@ -1,14 +1,13 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
-
-namespace FileDiff.UI
+﻿namespace FileDiff.UI
 {
+    using System.Windows;
+
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interaction logic for App.xaml.
     /// </summary>
+#pragma warning disable VSSpell001 // Spell Check
     public partial class App : Application
+#pragma warning restore VSSpell001 // Spell Check
     {
     }
-
 }

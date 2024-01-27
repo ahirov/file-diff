@@ -1,0 +1,120 @@
+﻿<Window
+    x:Class="FileDiff.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="File Diff"
+    Width="800"
+    Height="500"
+    MinWidth="800"
+    MinHeight="500"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Windows/Compare.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Grid
+            Height="20"
+            DockPanel.Dock="Bottom">
+            <TextBlock>Status line</TextBlock>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="20*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource Folder.Selector}">
+                <DockPanel>
+                    <Grid DockPanel.Dock="Right">
+                        <ui:Button />
+                    </Grid>
+                    <Grid>
+                        <ui:TextBox PlaceholderText="C:\Source" />
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                Style="{StaticResource Folder.Selector}">
+                <DockPanel>
+                    <Grid DockPanel.Dock="Right">
+                        <ui:Button />
+                    </Grid>
+                    <Grid>
+                        <ui:TextBox PlaceholderText="C:\Destination" />
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <Border
+                Grid.Row="0"
+                Grid.Column="2"
+                Style="{StaticResource Activator}">
+                <ui:Button Content="Compare" />
+            </Border>
+            <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource Folder.View}">
+                <TextBlock>Source body</TextBlock>
+            </Border>
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource Folder.View}">
+                <TextBlock>Destination body</TextBlock>
+            </Border>
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                Style="{StaticResource Parameters}">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Equality:" />
+                    <Viewbox>
+                        <RadioButton
+                            GroupName="equality"
+                            IsChecked="True">
+                            name
+                        </RadioButton>
+                    </Viewbox>
+                    <Viewbox>
+                        <RadioButton GroupName="equality">size</RadioButton>
+                    </Viewbox>
+                    <Viewbox>
+                        <RadioButton GroupName="equality">bit</RadioButton>
+                    </Viewbox>
+                    <Separator />
+                    <TextBlock Text="Sorting:" />
+                    <Viewbox>
+                        <RadioButton
+                            GroupName="sorting"
+                            IsChecked="True">
+                            none
+                        </RadioButton>
+                    </Viewbox>
+                    <Viewbox>
+                        <RadioButton GroupName="sorting">name</RadioButton>
+                    </Viewbox>
+                    <Viewbox>
+                        <RadioButton GroupName="sorting">size</RadioButton>
+                    </Viewbox>
+                    <Separator />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
